@@ -93,15 +93,11 @@ use fixed32::Fp;
 
      // Sort distances
      if time_near.x > time_far.x {
-         let temp = time_near.x;
-         time_near.x = time_far.x;
-         time_far.x = temp;
+         std::mem::swap(&mut time_near.x, &mut time_far.x);
      }
 
      if time_near.y > time_far.y {
-         let temp = time_near.y;
-         time_near.y = time_far.y;
-         time_far.y = temp;
+         std::mem::swap(&mut time_near.y, &mut time_far.y);
      }
 
      if time_near.x >= time_far.y || time_near.y >= time_far.x {
@@ -156,7 +152,7 @@ use fixed32::Fp;
          }
      }
 
-     return None
+     None
 }
 
 pub fn ray_vs_rect_vertical_time(
