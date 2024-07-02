@@ -2,7 +2,7 @@
  *  Copyright (c) Peter Bjorklund. All rights reserved. https://github.com/piot/impact-rs
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------------------*/
- use fixed32::Fp;
+use fixed32::Fp;
  use fixed32_math::{Rect, Vector};
  use std::cmp::{max, min};
 
@@ -149,7 +149,14 @@
 
     let ray_origin = origin.pos + origin.size;
 
-    ray_vs_rect_vertical_time(ray_origin, y_delta, combined_target_rect)
+     let maybe_intersected = ray_vs_rect_horizontal_time(ray_origin, y_delta, combined_target_rect);
+     if let Some(time) = maybe_intersected {
+         if time >= Fp::zero() && time < Fp::one() {
+             return maybe_intersected;
+         }
+     }
+
+     return None
 }
 
 pub fn ray_vs_rect_vertical_time(
