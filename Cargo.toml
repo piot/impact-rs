@@ -1,6 +1,6 @@
 [package]
 name = "impact-rs"
-version = "0.0.3"
+version = "0.0.4"
 edition = "2021"
 license = "MIT"
 description = "Collision query library for 2D games"
@@ -10,4 +10,4 @@ repository = "https://github.com/piot/impact-rs"
 
 [dependencies]
 fixed32 = "0.0.6"
-fixed32-math = "0.0.4"
+fixed32-math = "0.0.5"
