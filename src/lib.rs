@@ -160,7 +160,7 @@ pub fn swept_rect_vs_rect_vertical_time(origin: &Rect, target: &Rect, y_delta: F
 
     let ray_origin = origin.pos + origin.size;
 
-    let maybe_intersected = ray_vs_rect_horizontal_time(ray_origin, y_delta, combined_target_rect);
+    let maybe_intersected = ray_vs_rect_vertical_time(ray_origin, y_delta, combined_target_rect);
     if let Some(time) = maybe_intersected {
         if time >= Fp::zero() && time < Fp::one() {
             return maybe_intersected;
