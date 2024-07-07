@@ -162,7 +162,7 @@ pub fn swept_rect_vs_rect_vertical_time(origin: &Rect, target: &Rect, y_delta: F
 
     let maybe_intersected = ray_vs_rect_vertical_time(ray_origin, y_delta, combined_target_rect);
     if let Some(time) = maybe_intersected {
-        if time > Fp::zero() && time < Fp::one() {
+        if time >= Fp::zero() && time < Fp::one() {
             return maybe_intersected;
         }
     }
@@ -202,7 +202,7 @@ pub fn swept_rect_vs_rect_horizontal_time(origin: &Rect, target: &Rect, x_delta:
 
     let maybe_intersected = ray_vs_rect_horizontal_time(origin_point, x_delta, expanded_target);
     if let Some(time) = maybe_intersected {
-        if time > Fp::zero() && time < Fp::one() {
+        if time >= Fp::zero() && time < Fp::one() {
             return maybe_intersected;
         }
     }
@@ -219,7 +219,7 @@ pub fn ray_vs_rect_horizontal_time(
         return None;
     }
 
-    if ray_origin.y < target_rect.pos.y || ray_origin.y > target_rect.pos.y + target_rect.size.y {
+    if ray_origin.y < target_rect.pos.y || ray_origin.y >= target_rect.pos.y + target_rect.size.y {
         return None;
     }
 
