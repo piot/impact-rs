@@ -1,6 +1,6 @@
 [package]
 name = "impact-rs"
-version = "0.0.7"
+version = "0.0.8"
 edition = "2021"
 license = "MIT"
 description = "Collision query library for 2D games"
