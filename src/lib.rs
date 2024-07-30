@@ -2,6 +2,15 @@
  *  Copyright (c) Peter Bjorklund. All rights reserved. https://github.com/piot/impact-rs
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------------------*/
+
+/*!
+This crate provides utilities for performing collision queries between rectangles and rays,
+including swept checks for moving rectangles. It leverages fixed-point arithmetic provided by the [`fixed32`] crate to
+handle the computations.
+*/
+
+mod test;
+
 use std::cmp::{max, min, Ordering};
 
 use fixed32::Fp;
