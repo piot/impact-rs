@@ -1,6 +1,6 @@
 [package]
 name = "impact-rs"
-version = "0.0.8"
+version = "0.0.9"
 edition = "2021"
 license = "MIT"
 description = "Collision query library for 2D games"
@@ -9,5 +9,5 @@ repository = "https://github.com/piot/impact-rs"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-fixed32 = "0.0.8"
-fixed32-math = "0.0.8"
+fixed32 = "0.0.11"
+fixed32-math = "0.0.10"
