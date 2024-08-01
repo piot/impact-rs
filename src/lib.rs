@@ -3,7 +3,6 @@
  * Licensed under the MIT License. See LICENSE in the project root for license information.
  */
 
-
 /*!
 This crate provides utilities for performing collision queries between rectangles and rays,
 including swept checks for moving rectangles. It leverages fixed-point arithmetic provided by the [`fixed32`] crate to
