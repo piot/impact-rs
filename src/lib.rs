@@ -1,7 +1,8 @@
-/*----------------------------------------------------------------------------------------------------------
- *  Copyright (c) Peter Bjorklund. All rights reserved. https://github.com/piot/impact-rs
- *  Licensed under the MIT License. See LICENSE in the project root for license information.
- *--------------------------------------------------------------------------------------------------------*/
+/*
+ * Copyright (c) Peter Bjorklund. All rights reserved. https://github.com/piot/impact-rs
+ * Licensed under the MIT License. See LICENSE in the project root for license information.
+ */
+
 
 /*!
 This crate provides utilities for performing collision queries between rectangles and rays,
