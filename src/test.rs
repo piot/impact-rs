@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod tests {
-    use crate::ray_vs_rect;
+    use crate::prelude::*;
     use fixed32::Fp;
     use fixed32_math::{Rect, Vector};
 
