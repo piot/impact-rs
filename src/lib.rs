@@ -51,7 +51,7 @@ pub fn ray_vs_rect(
     ray_direction: Vector,
     target: Rect,
 ) -> Option<RayIntersectionResult> {
-    if ray_direction.x.0 == 0 && ray_direction.y.0 == 0 {
+    if ray_direction.x.is_zero() && ray_direction.y.is_zero() {
         return None;
     }
 
@@ -59,19 +59,19 @@ pub fn ray_vs_rect(
     let mut time_far = Vector::default();
 
     let inverted_direction = Vector::new(
-        if ray_direction.x.0 != 0 {
+        if ray_direction.x != 0 {
             Fp::one() / ray_direction.x
         } else {
             Fp::zero()
         },
-        if ray_direction.y.0 != 0 {
+        if ray_direction.y != 0 {
             Fp::one() / ray_direction.y
         } else {
             Fp::zero()
         },
     );
 
-    match ray_direction.x.0.cmp(&0) {
+    match ray_direction.x.cmp(&Fp::zero()) {
         Ordering::Greater => {
             time_near.x = (target.pos.x - ray_origin.x) * inverted_direction.x;
             time_far.x = (target.pos.x + target.size.x - ray_origin.x) * inverted_direction.x;
@@ -90,7 +90,7 @@ pub fn ray_vs_rect(
         }
     }
 
-    match ray_direction.y.0.cmp(&0) {
+    match ray_direction.y.cmp(&Fp::zero()) {
         Ordering::Greater => {
             time_near.y = (target.pos.y - ray_origin.y) * inverted_direction.y;
             time_far.y = (target.pos.y + target.size.y - ray_origin.y) * inverted_direction.y;
@@ -124,7 +124,7 @@ pub fn ray_vs_rect(
 
     let time_far_magnitude = min(time_far.x, time_far.y);
 
-    if time_far_magnitude.0 < 0 {
+    if time_far_magnitude < 0 {
         return None;
     }
 
@@ -136,14 +136,14 @@ pub fn ray_vs_rect(
 
     match time_near.x.cmp(&time_near.y) {
         Ordering::Greater => {
-            contact_normal = if ray_direction.x.0 > 0 {
+            contact_normal = if ray_direction.x > 0 {
                 Vector::right()
             } else {
                 Vector::left()
             };
         }
         Ordering::Less => {
-            contact_normal = if ray_direction.y.0 > 0 {
+            contact_normal = if ray_direction.y > 0 {
                 Vector::up()
             } else {
                 Vector::down()
@@ -184,7 +184,7 @@ pub fn ray_vs_rect_vertical_time(
     ray_length_in_y: Fp,
     target_rect: Rect,
 ) -> Option<Fp> {
-    if ray_length_in_y.0 == 0 {
+    if ray_length_in_y.is_zero() {
         return None;
     }
 
@@ -192,7 +192,7 @@ pub fn ray_vs_rect_vertical_time(
         return None;
     }
 
-    let closest_time = if ray_length_in_y.0 > 0 {
+    let closest_time = if ray_length_in_y > 0 {
         (target_rect.pos.y - ray_origin.y) / ray_length_in_y
     } else {
         (target_rect.pos.y + target_rect.size.y - ray_origin.y) / ray_length_in_y
@@ -224,7 +224,7 @@ pub fn ray_vs_rect_horizontal_time(
     ray_length_in_x: Fp,
     target_rect: Rect,
 ) -> Option<Fp> {
-    if ray_length_in_x.0 == 0 {
+    if ray_length_in_x == 0 {
         return None;
     }
 
@@ -232,7 +232,7 @@ pub fn ray_vs_rect_horizontal_time(
         return None;
     }
 
-    let closest_time = if ray_length_in_x.0 > 0 {
+    let closest_time = if ray_length_in_x > 0 {
         (target_rect.pos.x - ray_origin.x) / ray_length_in_x
     } else {
         (target_rect.pos.x + target_rect.size.x - ray_origin.x) / ray_length_in_x
