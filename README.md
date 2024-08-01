@@ -4,12 +4,17 @@ This crate provides utilities for performing collision queries between rectangle
 including swept checks for moving rectangles. It leverages fixed-point arithmetic provided by the `fixed32` crate to
 handle the computations.
 
+
 ## Features
 
 - **Ray vs. Rect Collision Detection**: Detect collisions between a ray and a rectangle, returning contact point, contact normal,
   and the closest time of collision.
-- **Swept Rectangle Collision**: Check for potential collisions as one rectangle moves towards another,
-  using both horizontal and vertical sweeps.
+- **Swept Rectangle Collision**: Check for potential collisions as one rectangle moves towards another. Either using a delta 2D vector, or a scalar sweep in horizontal or vertical direction.
+
+<div align="center">
+  <img src="docs/images/impact.png" alt="Swept Rectangle" width="400em">
+</div>
+
 - **Fixed-Point Precision**: Uses fixed-point numbers (`Fp`) from the `fixed32` crate for precise calculations
   without floating-point errors.
 
