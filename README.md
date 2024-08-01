@@ -1,16 +1,16 @@
 # Impact-rs
 
-This crate provides utilities for performing collision queries between rectangles and rays, 
-including swept checks for moving rectangles. It leverages fixed-point arithmetic provided by the `fixed32` crate to 
+This crate provides utilities for performing collision queries between rectangles and rays,
+including swept checks for moving rectangles. It leverages fixed-point arithmetic provided by the `fixed32` crate to
 handle the computations.
 
 ## Features
 
-- **Ray vs. Rect Collision Detection**: Detect collisions between a ray and a rectangle, returning contact point, contact normal,  
+- **Ray vs. Rect Collision Detection**: Detect collisions between a ray and a rectangle, returning contact point, contact normal,
   and the closest time of collision.
-- **Swept Rectangle Collision**: Check for potential collisions as one rectangle moves towards another, 
+- **Swept Rectangle Collision**: Check for potential collisions as one rectangle moves towards another,
   using both horizontal and vertical sweeps.
-- **Fixed-Point Precision**: Uses fixed-point numbers (`Fp`) from the `fixed32` crate for precise calculations 
+- **Fixed-Point Precision**: Uses fixed-point numbers (`Fp`) from the `fixed32` crate for precise calculations
   without floating-point errors.
 
 ## Usage
@@ -19,7 +19,7 @@ To use this crate in your project, add it to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-impact_rs = "0.0.11"
+impact_rs = "0.0.14"
 ```
 
 ## Example
@@ -27,7 +27,7 @@ impact_rs = "0.0.11"
 ```rust
 use fixed32::Fp;
 use fixed32_math::{Rect, Vector};
-use impact_rs::ray_vs_rect;
+use impact_rs::prelude::*;
 
 fn main() {
   let ray_origin = Vector::from((1, 2));
