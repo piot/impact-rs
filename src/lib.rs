@@ -7,15 +7,15 @@
 This crate provides utilities for performing collision queries between rectangles and rays,
 including swept checks for moving rectangles. It leverages fixed-point arithmetic provided by the [`fixed32`] crate to
 handle the computations.
-*/
-
-pub mod prelude;
-mod test;
+ */
 
 use std::cmp::{max, min, Ordering};
 
 use fixed32::Fp;
 use fixed32_math::{Rect, Vector};
+
+pub mod prelude;
+mod test;
 
 #[derive(Debug, Clone)]
 pub struct RayIntersectionResult {
@@ -135,10 +135,10 @@ pub fn swept_rect_vs_rect(
 ///         println!("Intersection found at point: {:?}", result.contact_point);
 ///         println!("Contact normal: {:?}", result.contact_normal);
 ///         println!("Intersection time: {:?}", result.closest_time);
-///     },
+///     }
 ///     None => {
 ///         println!("No intersection.");
-///     },
+///     }
 /// }
 /// ```
 pub fn ray_vs_rect(
@@ -294,10 +294,10 @@ pub fn ray_vs_rect(
 /// match swept_rect_vs_rect_vertical_time(origin, target, y_delta) {
 ///     Some(time) => {
 ///         println!("Intersection found at time: {:?}", time);
-///     },
+///     }
 ///     None => {
 ///         println!("No intersection.");
-///     },
+///     }
 /// }
 /// ```
 ///
@@ -357,10 +357,10 @@ pub fn swept_rect_vs_rect_vertical_time(origin: Rect, target: Rect, y_delta: Fp)
 /// match ray_vs_rect_vertical_time(ray_origin, ray_length_in_y, target_rect) {
 ///     Some(time) => {
 ///         println!("Intersection occurs at time: {:?}", time);
-///     },
+///     }
 ///     None => {
 ///         println!("No intersection or ray does not move vertically.");
-///     },
+///     }
 /// }
 /// ```
 pub fn ray_vs_rect_vertical_time(
@@ -426,10 +426,10 @@ pub fn ray_vs_rect_vertical_time(
 /// match swept_rect_vs_rect_horizontal_time(origin, target, x_delta) {
 ///     Some(time) => {
 ///         println!("Intersection found at time: {:?}", time);
-///     },
+///     }
 ///     None => {
 ///         println!("No intersection.");
-///     },
+///     }
 /// }
 /// ```
 pub fn swept_rect_vs_rect_horizontal_time(origin: Rect, target: Rect, x_delta: Fp) -> Option<Fp> {
@@ -488,10 +488,10 @@ pub fn swept_rect_vs_rect_horizontal_time(origin: Rect, target: Rect, x_delta: F
 /// match ray_vs_rect_horizontal_time(ray_origin, ray_length_in_x, target_rect) {
 ///     Some(time) => {
 ///         println!("Intersection occurs at time: {:?}", time);
-///     },
+///     }
 ///     None => {
 ///         println!("No intersection or ray does not move horizontally.");
-///     },
+///     }
 /// }
 /// ```
 pub fn ray_vs_rect_horizontal_time(
