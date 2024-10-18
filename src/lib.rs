@@ -15,7 +15,6 @@ use fixed32::Fp;
 use fixed32_math::{Rect, Vector};
 
 pub mod prelude;
-mod test;
 
 #[derive(Debug, Clone)]
 pub struct RayIntersectionResult {
@@ -71,6 +70,7 @@ pub struct RayIntersectionResult {
 ///     }
 /// }
 /// ```
+#[must_use]
 pub fn swept_rect_vs_rect(
     origin: Rect,
     target: Rect,
@@ -141,6 +141,7 @@ pub fn swept_rect_vs_rect(
 ///     }
 /// }
 /// ```
+#[must_use]
 pub fn ray_vs_rect(
     ray_origin: Vector,
     ray_direction: Vector,
@@ -301,6 +302,7 @@ pub fn ray_vs_rect(
 /// }
 /// ```
 ///
+#[must_use]
 pub fn swept_rect_vs_rect_vertical_time(origin: Rect, target: Rect, y_delta: Fp) -> Option<Fp> {
     let combined_target_rect = Rect {
         pos: target.pos,
@@ -363,6 +365,7 @@ pub fn swept_rect_vs_rect_vertical_time(origin: Rect, target: Rect, y_delta: Fp)
 ///     }
 /// }
 /// ```
+#[must_use]
 pub fn ray_vs_rect_vertical_time(
     ray_origin: Vector,
     ray_length_in_y: Fp,
@@ -432,6 +435,7 @@ pub fn ray_vs_rect_vertical_time(
 ///     }
 /// }
 /// ```
+#[must_use]
 pub fn swept_rect_vs_rect_horizontal_time(origin: Rect, target: Rect, x_delta: Fp) -> Option<Fp> {
     let expanded_target = Rect {
         pos: target.pos,
@@ -494,6 +498,7 @@ pub fn swept_rect_vs_rect_horizontal_time(origin: Rect, target: Rect, x_delta: F
 ///     }
 /// }
 /// ```
+#[must_use]
 pub fn ray_vs_rect_horizontal_time(
     ray_origin: Vector,
     ray_length_in_x: Fp,

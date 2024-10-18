@@ -4,7 +4,6 @@ This crate provides utilities for performing collision queries between rectangle
 including swept checks for moving rectangles. It leverages fixed-point arithmetic provided by the `fixed32` crate to
 handle the computations.
 
-
 ## Features
 
 - **Ray vs. Rect Collision Detection**: Detect collisions between a ray and a rectangle, returning contact point, contact normal,
@@ -24,7 +23,7 @@ To use this crate in your project, add it to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-impact_rs = "0.0.14"
+impact_rs = "0.0.17"
 ```
 
 ## Example
